@@ -104,15 +104,6 @@ extension AVURLAsset {
       return ""
     }
 
-    if tf.a == 0, tf.b == 1.0, tf.d == 0 {
-      return "90"
-    } else if tf.a == 0, tf.b == -1.0, tf.d == 0 {
-      return "270"
-    } else if tf.a == 1.0, tf.b == 0, tf.c == 0 {
-      return "0"
-    } else if tf.a == -1.0, tf.b == 0, tf.c == 0 {
-      return "180"
-    }
-    return ""
+    return String(Int(Double(atan2(tf.b, tf.a) * 180) / Double.pi))
   }
 }
